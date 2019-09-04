@@ -46,3 +46,9 @@ plt.plot(res.history['val_accuracy'])
 plt.legend(['training', 'valivation'], loc='upper left')
 plt.show()
 
+# 验证测试
+res_test = LeNet5_model.evaluate(test_datas, test_labels)
+
+# 模型保存
+LeNet5_model.save('LeNet-5_model.h5')
+
