@@ -40,14 +40,14 @@ LeNet5_model.compile(optimizer=tf.keras.optimizers.Adam(), loss=tf.keras.losses.
 print(LeNet5_model.summary())
 
 # 训练
-res = LeNet5_model.fit(train_datas, trian_labels, batch_size=64, epochs=5, validation_split=0.1)
-plt.plot(res.history['accuracy'])
-plt.plot(res.history['val_accuracy'])
+history = LeNet5_model.fit(train_datas, trian_labels, batch_size=64, epochs=5, validation_split=0.1)
+plt.plot(history.history['accuracy'])
+plt.plot(history.history['val_accuracy'])
 plt.legend(['training', 'valivation'], loc='upper left')
 plt.show()
 
 # 验证测试
-res_test = LeNet5_model.evaluate(test_datas, test_labels)
+res = LeNet5_model.evaluate(test_datas, test_labels)
 
 # 模型保存
 LeNet5_model.save('LeNet-5_model.h5')
